@@ -13,7 +13,7 @@
   width: 300px;
   height: 300px;
 }
-.grid_container > div{
+.eachcell{
   background-color: rgb(233, 211, 191);
   margin:auto auto ;
   width:80px ;
