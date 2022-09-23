@@ -1,7 +1,9 @@
 import React,{useState, useEffect} from 'react';
-import 'App.css';
-import 'index.css';
-import 'DisplayValue.js';
+import './App.css';
+import './index.css';
+import './DisplayValue.js';
+import './PlayerTurn.js';
+import PlayerTurn from './PlayerTurn.js';
 
 const clearStatus=["","","","","","","","",""];
 const win_comb=[
@@ -21,7 +23,7 @@ function App()
   const [gameStatus,setgameStatus]=useState(true);
   const [boxStatus,setboxStatus]=useState(clearStatus);
 
-  const CellClickedCheck=(cellClickedIndex)=>{}
+  const CellClickedCheck=(cellClickedIndex)=>{
     if(boxStatus[cellClickedIndex]!=='' || gameStatus!=true)
     {
         return null;
@@ -34,11 +36,12 @@ function App()
     setboxStatus(boxStatus[cellClickedIndex]=currentPlayer);
 }
   const PlayerChange=()=>{
-    currentPlayer=currentPlayer==='X'?'O':'X';
-    statusDisplay.innerHTML=playerTurn();
+    <PlayerTurn>
+    setcurrentPlayer(currentPlayer==='X'?'O':'X');
+    </PlayerTurn >
 }
   const verifyWin=()=>{
-    roundWon=false;
+    let roundWon=false;
     let check_comb;
     for(let i=0;i<=7;i++){
         check_comb=win_comb[i];
@@ -55,11 +58,12 @@ function App()
     }
     if(roundWon)
     {
-        statusDisplay.innerHTML=playerWon();
+        <PlayerWon>
+            scratch(check_comb);
+            setgameStatus(false);
+        </PlayerWon>
        // console.log(11);
-        scratch(check_comb);
-        gameStatus=false;
-        return null;
+       return null;
     }
     let roundDraw=!boxStatus.includes("");
     if(roundDraw)
@@ -135,8 +139,8 @@ return(
             <DisplayValue data-cell-index="7" className="eachcell cell" onClick={()=>CellClickedCheck(7)} state={boxStatus[7]} />
             <DisplayValue data-cell-index="8" className="eachcell cell" onClick={()=>CellClickedCheck(8)} state={boxStatus[8]} />
         </div>,
-        <h2 class="game_status" style="visibility: visible;"></h2>,
-        <button class="game_restart" style="visibility: visible;" onClick={()=>gameRestart}>RESTART GAME</button>,
+        <h2 className="game_status" style="visibility: visible;"></h2>,
+        <button className="game_restart" style="visibility: visible;" onClick={()=>gameRestart}>RESTART GAME</button>,
         <hr id="scratch_hor1" style="visibility: hidden;" />,
         <hr id="scratch_hor2" style="visibility: hidden;" />,
         <hr id="scratch_hor3" style="visibility: hidden;" />,
@@ -145,6 +149,6 @@ return(
         <hr id="scratch_ver3" style="visibility: hidden;" />,
         <hr id="scratch_dig1" style="visibility: hidden;" />,
         <hr id="scratch_dig2" style="visibility: hidden;" />
-  );
+  );}
 
 export default App;

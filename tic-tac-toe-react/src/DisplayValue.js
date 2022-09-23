@@ -2,8 +2,8 @@ import React from "react";
 
 const DisplayValue= (props)=>{
     <span
-        onClick={() => props.onClick(props.index)}
-        {...props.state}>
+        onClick={() => props.onClick(props.CellClickedIndex)}>
+        {props.state}
     </span>
 }
 export default DisplayValue;
