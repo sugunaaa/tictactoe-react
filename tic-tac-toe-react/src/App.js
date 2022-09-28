@@ -24,7 +24,7 @@ function App() {
     const [boxStatus, setboxStatus] = useState(clearStatus);
 
     const CellClickedCheck = (cellClickedIndex) => {
-        if (boxStatus[cellClickedIndex] !== '' || gameStatus != true) {
+        if (boxStatus[cellClickedIndex] !== '' || gameStatus !== true) {
             return null;
         }
         CellCLickedUpdate(cellClickedIndex);
@@ -35,8 +35,8 @@ function App() {
         setboxStatus(boxStatus[cellClickedIndex] = currentPlayer);
     }
     const PlayerChange = () => {
+        setcurrentPlayer(currentPlayer==='X'?'O':'X');
         <PlayerTurn>
-            setcurrentPlayer(currentPlayer==='X'?'O':'X');
         </PlayerTurn >
     }
     const verifyWin = () => {
@@ -116,15 +116,15 @@ function App() {
     return (
         <><h1 className="game_title">TIC-TAC-TOE XOXO</h1>
             <div className="grid_container">
-                <div data-cell-index="0" className="eachcell cell" onClick={() => CellClickedCheck(0)} state={boxStatus[0]} />
-                <div data-cell-index="1" className="eachcell cell" onClick={() => CellClickedCheck(1)} state={boxStatus[1]} />
-                <div data-cell-index="2" className="eachcell cell" onClick={() => CellClickedCheck(2)} state={boxStatus[2]} />
-                <div data-cell-index="3" className="eachcell cell" onClick={() => CellClickedCheck(3)} state={boxStatus[3]} />
-                <div data-cell-index="4" className="eachcell cell" onClick={() => CellClickedCheck(4)} state={boxStatus[4]} />
-                <div data-cell-index="5" className="eachcell cell" onClick={() => CellClickedCheck(5)} state={boxStatus[5]} />
-                <div data-cell-index="6" className="eachcell cell" onClick={() => CellClickedCheck(6)} state={boxStatus[6]} />
-                <div data-cell-index="7" className="eachcell cell" onClick={() => CellClickedCheck(7)} state={boxStatus[7]} />
-                <div data-cell-index="8" className="eachcell cell" onClick={() => CellClickedCheck(8)} state={boxStatus[8]} />
+                <div DisplayValue data-cell-index="0" className="eachcell cell" onClick={() => CellClickedCheck(0)} state={boxStatus[0]} />
+                <div DisplayValue data-cell-index="1" className="eachcell cell" onClick={() => CellClickedCheck(1)} state={boxStatus[1]} />
+                <div DisplayValue data-cell-index="2" className="eachcell cell" onClick={() => CellClickedCheck(2)} state={boxStatus[2]} />
+                <div DisplayValue data-cell-index="3" className="eachcell cell" onClick={() => CellClickedCheck(3)} state={boxStatus[3]} />
+                <div DisplayValue data-cell-index="4" className="eachcell cell" onClick={() => CellClickedCheck(4)} state={boxStatus[4]} />
+                <div DisplayValue data-cell-index="5" className="eachcell cell" onClick={() => CellClickedCheck(5)} state={boxStatus[5]} />
+                <div DisplayValue data-cell-index="6" className="eachcell cell" onClick={() => CellClickedCheck(6)} state={boxStatus[6]} />
+                <div DisplayValue data-cell-index="7" className="eachcell cell" onClick={() => CellClickedCheck(7)} state={boxStatus[7]} />
+                <div DisplayValue  data-cell-index="8" className="eachcell cell" onClick={() => CellClickedCheck(8)} state={boxStatus[8]} />
             </div>
             <h2 className="game_status" style={{ visibility: "visible" }}></h2>
             <button className="game_restart" style={{ visibility: "visible" }} onClick={() => gameRestart}>RESTART GAME</button>
